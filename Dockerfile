@@ -37,8 +37,9 @@ RUN cd /tmp && \
 
 # Domoticz
 RUN cd /tmp && \
-    git clone --depth 1 https://github.com/domoticz/domoticz.git && \
+    git clone https://github.com/domoticz/domoticz.git && \
     cd domoticz && \
+    git checkout 3.4834 && \
     mkdir build && \
     cd build && \
     cmake -DCMAKE_BUILD_TYPE=Release \
