@@ -5,8 +5,9 @@ After=docker.service
 
 [Service]
 Restart=always
-ExecStart=/usr/bin/docker run --rm --name=domoticz -v /etc/domoticz:/config -v /etc/localtime:/etc/localtime:ro --device=/dev/ttyACM0 -p 9000 domoticz
+ExecStart=/usr/bin/docker run --rm --name=domoticz -v /etc/domoticz:/config -v /etc/localtime:/etc/localtime:ro --device=/dev/ttyACM0 -p 9000:9000 domoticz
 ExecStop=/usr/bin/docker stop -t 2 domoticz
 
 [Install]
 WantedBy=local.target
+
