@@ -37,9 +37,8 @@ RUN cd /tmp && \
 
 # Domoticz
 RUN cd /tmp && \
-    git clone https://github.com/domoticz/domoticz.git && \
+    git clone --depth 1 https://github.com/domoticz/domoticz.git && \
     cd domoticz && \
-    git checkout 3.4834 && \
     mkdir build && \
     cd build && \
     cmake -DCMAKE_BUILD_TYPE=Release \
@@ -57,6 +56,6 @@ RUN cd /tmp && \
 VOLUME /config
 EXPOSE 9000
 
-ENTRYPOINT ["/opt/domoticz/domoticz", "-dbase", "/config/domoticz.db", "-log", "/config/domoticz.log"]
+ENTRYPOINT ["/opt/domoticz/domoticz", "-dbase", "/config/domoticz.db", "-log", "/config/domoticz.log", "-sslwww", "0", "-pidfile", "/config/domoticz.container.pid"]
 CMD ["-www", "9000"]
 

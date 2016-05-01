@@ -1,11 +1,12 @@
 domoticz-docker
 =====
 
-This container has the latest Domoticz and OpenZWave git tags. It's based on Ubuntu 16.04 and uses Ubuntu's shared libraries in favor of building everyting itself where possible. There is also support for Python scripts. Finally the builds are cleaned for space but a simple make command offers an easy way to play with the code.
+This container has the latest Domoticz and OpenZWave built from git tags. It's based on Ubuntu 16.04 and uses Ubuntu's shared libraries in favor of building everything from the built-in library copies where possible. There is also support for Python scripts. Finally the builds are cleaned for space but a simple make command offers an easy way to play with the code.
 
 **Run the container**
 
 ```
+docker pull defl/domoticz (if you don't want to build yourself)
 docker run -it --rm -v /etc/domoticz/:/config --device /dev/ttyACM0 domoticz
 ```
 
@@ -21,5 +22,5 @@ In the os subdirectory you can find helper scripts for firewall and systemd.
 http://<host ip>:9000
 ```
 
-The port is 9000 by default, this deviates from the standard. You can use the -p argument to put it on a different port.
+The port is 9000 by default, this deviates from the standard. You can use the -p argument to put it on a different port. The ssl http server is turned off.
 
