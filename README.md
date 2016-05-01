@@ -11,11 +11,11 @@ docker run -it --rm -v /etc/domoticz/:/config --device /dev/ttyACM0 domoticz
 
 The container has an entrypoint to the correct path. So you only need to run it by it's name. In this case it was tagged as domoticz (docker tag -f <hash> domoticz).
 
-** OS support **
+**OS support**
 
 In the os subdirectory you can find helper scripts for firewall and systemd.
 
-** Access Domoticz web gui**
+**Access Domoticz web gui**
 
 ```
 http://<host ip>:9000

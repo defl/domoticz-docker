@@ -1,0 +1,13 @@
+[Unit]
+Description=Domoticz
+Requires=docker.service
+After=docker.service
+
+[Service]
+Restart=always
+ExecStart=/usr/bin/docker run -a --name=domoticz -v /etc/domoticz:/config -v /etc/localtime:/etc/localtime:ro --device=/dev/ttyACM0 domoticz
+ExecStop=/usr/bin/docker stop -t 2 domoticz
+
+[Install]
+WantedBy=local.target
+

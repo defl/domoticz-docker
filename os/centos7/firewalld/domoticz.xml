@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<service version="1.0">
+  <short>domoticz</short>
+  <description>Domoticz</description>
+  <port port="9000" protocol="tcp"/>
+</service>
+
