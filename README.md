@@ -21,5 +21,5 @@ In the os subdirectory you can find helper scripts for firewall and systemd.
 http://<host ip>:9000
 ```
 
-The port is 9000 by default. This deviates from the standard. You can use the -p argument to put it on a different folder.
+The port is 9000 by default, this deviates from the standard. You can use the -p argument to put it on a different port.
 
