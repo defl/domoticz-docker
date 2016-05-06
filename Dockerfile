@@ -19,13 +19,14 @@ RUN apt-get update && \
                        libudev-dev \
                        libusb-dev \
                        python-dev \
-                       wget \
                        zlib1g-dev && \
     apt-get autoremove -y && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* 
 
 # OpenZWave
+# - The installer does not know about Ubuntu's new x86_64 library name 
+#   and installs in the wrong dir, hence the ldconfig additions
 RUN cd /tmp && \
     git clone --depth 1 https://github.com/OpenZWave/open-zwave.git && \
     cd open-zwave && \
@@ -36,8 +37,10 @@ RUN cd /tmp && \
     ldconfig
 
 # Domoticz
+# - Needs a full-depth clone because the version generation depends on it
+#   (and then applies some magic)
 RUN cd /tmp && \
-    git clone --depth 1 https://github.com/domoticz/domoticz.git && \
+    git clone https://github.com/domoticz/domoticz.git && \
     cd domoticz && \
     mkdir build && \
     cd build && \
