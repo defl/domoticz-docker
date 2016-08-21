@@ -3,12 +3,12 @@ MAINTAINER Dennis Fleurbaaij <mail@dennisfleurbaaij.com>
 
 # Install dependencies
 RUN apt-get update && \
+    apt-get upgrade -y && \
     apt-get install -y build-essential \
                        cmake \
                        curl \
                        git \
                        libboost-dev \
-                       libboost-python-dev \
                        libboost-system-dev \
                        libboost-thread-dev \
                        libcurl4-openssl-dev \
@@ -18,7 +18,6 @@ RUN apt-get update && \
                        libssl-dev \
                        libudev-dev \
                        libusb-dev \
-                       python-dev \
                        zlib1g-dev && \
     apt-get autoremove -y && \
     apt-get clean && \
@@ -47,7 +46,7 @@ RUN cd /tmp && \
     cmake -DCMAKE_BUILD_TYPE=Release \
           -DUSE_STATIC_OPENZWAVE=No \
           -DUSE_STATIC_BOOST=No \
-          -DUSE_PYTHON=Yes \
+          -DUSE_PYTHON=No \
           -DUSE_BUILTIN_SQLITE=No \
           -DUSE_BUILTIN_MQTT=No \
           -DUSE_BUILTIN_LUA=No \
